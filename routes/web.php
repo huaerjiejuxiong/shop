@@ -161,9 +161,56 @@ Route::get('/wechat/get_user_list','WechatController@get_user_list'); //获取�
 Route::get('/wechat/get_user_xiang','WechatController@get_user_xiang'); //详情列表
 
 
-
+//微信授权登录
 Route::prefix('welogin')->group(function () {
 	Route::get('login','WeloginController@login');
 	Route::any('welogin_login','WeloginController@welogin_login');
 	Route::any('code','WeloginController@code');
 });
+//微信授权登录
+Route::prefix('show')->group(function () {
+	Route::any('welogin_login','ShowController@welogin_login');
+	Route::any('code','ShowController@code');
+	Route::get('list','ShowController@list');
+	Route::get('get_access_token','ShowController@get_access_token');
+	Route::any('do_send_message','ShowController@do_send_message');
+});
+// Route::any('/show/welogin_login','ShowController@welogin_login');
+// Route::any('/show/code','ShowController@code');
+// ->middleware('showlogin')
+
+//微信标签
+Route::prefix('label')->group(function () {
+    Route::get('tag_index','LabelController@tag_index');//标签列表
+    Route::any('add_tag','LabelController@add_tag');//添加标签
+    Route::any('do_add_tag','LabelController@do_add_tag');//处理添加标签
+
+
+});
+Route::get('/wechat/send','WechatController@send_template_massage');
+// 微信菜单
+Route::prefix('menu')->group(function () {
+   Route::any('createmenu','menuController@createmenu');//生成菜单
+});
+
+//js
+Route::prefix('sign')->group(function () {
+	Route::any('location','signController@location');
+});
+
+
+Route::prefix('wechat')->namespace('testone')->group(function(){
+    Route::get('login','WechatController@login');                           // 授权登录
+    Route::get('code','WechatController@code');                             // 获取信息
+    Route::get('create_tag','WechatController@create_tag');                 // 创建标签视图
+    Route::post('save_tag','WechatController@save_tag');                    // 创建标签处理
+    Route::get('list_tag','WechatController@list_tag');                     // 标签列表
+    Route::get('user_list','WechatController@user_list');                   // 用户列表
+    Route::post('save_tag_openid','WechatController@save_tag_openid');      // 用户添加标签
+    Route::get('send_message','WechatController@send_message');             // 标签发送消息
+    Route::post('send_message_do','WechatController@send_message_do');      // 标签发送消息
+
+    Route::get('get_access_token','WechatController@get_access_token');     // 获取token
+});
+
+
