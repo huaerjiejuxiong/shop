@@ -12,7 +12,7 @@ class EventController extends Controller
 
     
     {
-        echo $_GET['echostr'];die;
+        // echo $_GET['echostr'];die;
 //        dd($_POST);
         $xml_string = file_get_contents('php://input'); // 获取微信发过来的xml数据
         $wechat_log_path = storage_path('/logs/wechat/'.date("Y-m-d").'.log');  // 生成日志文件
