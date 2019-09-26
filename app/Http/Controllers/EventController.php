@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Tools\Tools;
+use App\Tools\tools;
 use DB;
 
 class EventController extends Controller
 {
     public $tools;
-    public function __construct(Tools $tools)
+    public function __construct(tools $tools)
     {
         $this->tools = $tools;
     }
