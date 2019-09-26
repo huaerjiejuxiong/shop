@@ -9,9 +9,12 @@ use DB;
 
 class EventController extends Controller
 {
-    public function event()
-
-    
+    public $tools;
+    public function __construct(Tools $tools)
+    {
+        $this->tools = $tools;
+    }
+    public function event()    
     {
         // echo $_GET['echostr'];die;
 //        dd($_POST);
