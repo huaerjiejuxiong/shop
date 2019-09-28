@@ -168,15 +168,15 @@ Route::prefix('welogin')->group(function () {
 	Route::any('code','WeloginController@code');
 });
 //微信授权登录
-Route::prefix('show')->group(function () {
-	Route::any('welogin_login','ShowController@welogin_login');
-	Route::any('code','ShowController@code');
+Route::prefix('show')->middleware('showlogin')->group(function () {
+	// Route::any('welogin_login','ShowController@welogin_login');
+	// Route::any('code','ShowController@code');
 	Route::get('list','ShowController@list');
 	Route::get('get_access_token','ShowController@get_access_token');
 	Route::any('do_send_message','ShowController@do_send_message');
 });
-// Route::any('/show/welogin_login','ShowController@welogin_login');
-// Route::any('/show/code','ShowController@code');
+Route::any('/show/welogin_login','ShowController@welogin_login');
+Route::any('/show/code','ShowController@code');
 // ->middleware('showlogin')
 
 //微信标签

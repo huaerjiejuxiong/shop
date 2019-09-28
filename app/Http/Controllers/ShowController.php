@@ -18,7 +18,8 @@ class ShowController extends Controller
     	//定义地址
     	$redirect_uri='http://www.shop.com/show/code';
     	$url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.env('WECHAT_APPID').'&redirect_uri='.urlencode($redirect_uri).'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
-    	header('Location:'.$url);
+        header('Location:'.$url);
+        
     }
     public function code()
     {

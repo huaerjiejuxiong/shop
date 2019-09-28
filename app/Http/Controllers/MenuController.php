@@ -21,6 +21,8 @@ class MenuController extends Controller
                      "type"=>"click",
                       "name"=>"华尔街巨熊",
                       "key"=>"V1001_TODAY_MUSIC"
+
+
                  ],
 
 
@@ -44,6 +46,20 @@ class MenuController extends Controller
         $result=$this->tools->curl_post($url,json_encode($data,JSON_UNESCAPED_UNICODE));
         $res=json_decode($result,1);
         dd($res);
+        $message = '欢迎';
+        // $xml_arr='';
+        // '.$user_info['nickname'].'
+        $xml_str = '<xml>
+        <ToUserName><![CDATA[wxf50e06e2fe696439]]></ToUserName>
+        <FromUserName><![CDATA[oUjmtuNUh1T07XlNdz86_6CTympk]]></FromUserName>
+        <CreateTime>123456789</CreateTime>
+        <MsgType><![CDATA[text]]></MsgType>
+        <Content><![CDATA['.$message.']]></Content>
+        <Event><![CDATA[CLICK]]></Event>
+        <EventKey><![CDATA[V1001_TODAY_MUSIC]]></EventKey>
+        </xml>';
+        // dd('xml_str');
+        echo $xml_str;
 
 
     }

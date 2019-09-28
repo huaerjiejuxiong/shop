@@ -26,7 +26,7 @@ class showlogin
         //     // 不可以通过
         //     dd('当前时间不可访问');
         // }
-        $session=request()->session()->get('userinfo');
+        $session=request()->session()->get('uid');
         if  (!$session) {
             echo "<script>alert('请登录');location='welogin_login'</script>";
         }
