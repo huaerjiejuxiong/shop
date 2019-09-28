@@ -50,7 +50,7 @@ class MenuController extends Controller
         // $xml_arr='';
         // '.$user_info['nickname'].'
         $xml_str = '<xml>
-        <ToUserName><![CDATA[wxf50e06e2fe696439]]></ToUserName>
+        <ToUserName><![CDATA[ gh_9ed4f971496d ]]></ToUserName>
         <FromUserName><![CDATA[oUjmtuNUh1T07XlNdz86_6CTympk]]></FromUserName>
         <CreateTime>123456789</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
