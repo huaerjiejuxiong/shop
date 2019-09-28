@@ -33,14 +33,14 @@ class EventController extends Controller
 
         if (!empty($xml_arr['EventKey'])){
             if ($xml_arr['EventKey'] == 'second_one'){
-//            $xml_string = (array)$xml_string;
-//            $aa=DB::table('wechat_openid')->where(['openid'=>$xml_arr['FromUserName']])->update([
-//                'xml'=>$xml_string
-//            ]);
-//            dd($aa);
+                $url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->get_wechat_access_token().'&openid='.$xml_arr['FromUserName'].'&lang=zh_CN';
+                $user_re = file_get_contents($url);
+                $uinfo = json_decode($user_re,1);
+//                dd($uinfo);
                 $user_info = DB::table('wechat_openid')->where(['openid'=>$xml_arr['FromUserName']])->first();
-                // dd($user_info);
-                $message = 'hello'.$user_info->nickname;
+//                dd($user_info);
+                $message = 'hello'.$uinfo['nickname'];
+//                dd($message);
                 $xml_str = '<xml><ToUserName><![CDATA['.$xml_arr['FromUserName'].']]></ToUserName><FromUserName><![CDATA['.$xml_arr['ToUserName'].']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['.$message.']]></Content></xml>';
                 echo $xml_str;
             }
