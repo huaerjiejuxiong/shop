@@ -214,3 +214,12 @@ Route::prefix('wechat')->namespace('testone')->group(function(){
 });
 
 
+//API接口项目
+Route::prefix('dengl')->group(function(){
+	Route::get('login','DenglController@login');
+	Route::get('index','DenglController@index');
+});
+
+
+// Route::get('/api/index','api\AdminController@index');
+
